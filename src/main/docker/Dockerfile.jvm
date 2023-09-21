@@ -85,7 +85,7 @@ COPY src src
 COPY pom.xml .
 
 RUN sh -c ulimit -n 100000
-RUN sh ./mvnw package
+RUN sh mvn package
 
 FROM registry.access.redhat.com/ubi8/openjdk-11:1.11
 
