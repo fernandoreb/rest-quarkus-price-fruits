@@ -80,12 +80,12 @@
 FROM registry.access.redhat.com/ubi8/openjdk-11:1.15-1.1679485219 as builder
 
 COPY src src
-COPY .mvn .mvn
+#COPY .mvn .mvn
 COPY --chown=185 mvnw mvnw
 COPY pom.xml .
 
 RUN sh -c ulimit -n 100000
-RUN sh ./mvnw package
+RUN sh ./mvnw clean package
 
 FROM registry.access.redhat.com/ubi8/openjdk-11-runtime:1.16-1
 
